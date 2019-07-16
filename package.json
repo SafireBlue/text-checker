@@ -1,0 +1,28 @@
+{
+  "name": "text-checker",
+  "version": "1.0.0",
+  "description": "Checks text",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SafireBlue/text-checker.git"
+  },
+  "keywords": [],
+  "author": "Akira Ogawa <akira@safire.blue> (https://safire.blue)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SafireBlue/text-checker/issues"
+  },
+  "homepage": "https://github.com/SafireBlue/text-checker#readme",
+  "devDependencies": {
+    "ts-loader": "^6.0.4",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.18.0",
+    "tslint-loader": "^3.5.4",
+    "typescript": "^3.5.3"
+  }
+}
