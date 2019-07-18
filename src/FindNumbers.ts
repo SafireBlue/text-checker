@@ -1,5 +1,7 @@
 // Reference: https://github.com/finnfiddle/words-to-numbers/blob/master/src/constants.js
 
+import FoundResult from "./Util/FoundResult";
+
 export const Unit = {
     zero: 0,
     // tslint:disable-next-line:object-literal-sort-keys
@@ -329,11 +331,6 @@ export const UnitKeys = Object.keys(Unit);
 export const TenKeys = Object.keys(Ten);
 export const MagnitudeKeys = Object.keys(Magnitude);
 export const NumberWords = [ ...UnitKeys, ...TenKeys, ...MagnitudeKeys];
-
-export class FoundResult {
-    public StartIndex: number = -1;
-    public Value: string = "";
-}
 
 export async function FindD(text: string): Promise<FoundResult[]> {
     const result = new Array<FoundResult>();
