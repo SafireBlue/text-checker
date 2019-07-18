@@ -1,5 +1,4 @@
 
-
 import FoundResult from "./Util/FoundResult";
 
 // tslint:disable-next-line:max-line-length
