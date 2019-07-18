@@ -335,7 +335,7 @@ export class FoundResult {
     public Value: string = "";
 }
 
-export function FindD(text: string): FoundResult[] {
+export async function FindD(text: string): Promise<FoundResult[]> {
     const result = new Array<FoundResult>();
     const regex = RegExp(/\d+/g);
     let execResult: RegExpExecArray = regex.exec(text)!;
@@ -346,7 +346,7 @@ export function FindD(text: string): FoundResult[] {
     return result;
 }
 
-export function FindEnglishNumberWords(text: string): FoundResult[] {
+export async function FindEnglishNumberWords(text: string): Promise<FoundResult[]> {
     const result = new Array<FoundResult>();
     const regex = RegExp(NumberWords.join("|"), "g");
     let execResult: RegExpExecArray = regex.exec(text)!;
@@ -357,7 +357,7 @@ export function FindEnglishNumberWords(text: string): FoundResult[] {
     return result;
 }
 
-export function FindLocalNumbers(text: string): FoundResult[] {
+export async function FindLocalNumbers(text: string): Promise<FoundResult[]> {
     const result = new Array<FoundResult>();
     const regex = RegExp(ULocalNumbersPattern, "g");
     let execResult: RegExpExecArray = regex.exec(text)!;
@@ -368,11 +368,11 @@ export function FindLocalNumbers(text: string): FoundResult[] {
     return result;
 }
 
-export default function(text: string): FoundResult[] {
+export default async function(text: string): Promise<FoundResult[]> {
     const result = new Array<FoundResult>();
-    result.push(...FindD(text));
-    result.push(...FindEnglishNumberWords(text));
-    result.push(...FindLocalNumbers(text));
+    result.push(...await FindD(text));
+    result.push(...await FindEnglishNumberWords(text));
+    result.push(...await FindLocalNumbers(text));
     result.sort((a, b) => a.StartIndex - b.StartIndex);
     return result;
 }
