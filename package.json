@@ -26,5 +26,7 @@
     "tslint-loader": "^3.5.4",
     "typescript": "^3.5.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "localization-format": "^1.1.6"
+  }
 }
