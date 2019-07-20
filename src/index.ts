@@ -1,5 +1,8 @@
-export { default as FindNumbers, FindD, FindEnglishNumberWords, FindLocalNumbers } from "./FindNumbers";
+export { default as FindAllCapsWords } from "./FindAllCapsWords";
 export { default as FindAlphanumericWords } from "./FindAlphanumericWords";
+export { default as FindCamelCaseWords } from "./FindCamelCaseWords";
+export { default as FindMarkups } from "./FindMarkups";
+export { default as FindNumbers, FindD, FindEnglishNumberWords, FindLocalNumbers } from "./FindNumbers";
 export { default as FindSpaces } from "./FindSpaces";
 
 // Util

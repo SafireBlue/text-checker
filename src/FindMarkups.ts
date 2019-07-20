@@ -1,0 +1,31 @@
+import FoundResult from "./Util/FoundResult";
+
+export default async function(text: string): Promise<FoundResult[]> {
+    const result = new Array<FoundResult>();
+    const singledtonTag: string = "<.+?/>";
+    const startTag: string = "<[^/].*?>";
+    const endTag: string = "</.+?>";
+    let startTagCounter: number = 0;
+    let startTagIndex: number = 0;
+    const regex = RegExp(`(${singledtonTag}|${startTag}|${endTag})`, "g");
+    let execResult: RegExpExecArray = regex.exec(text)!;
+    while (execResult) {
+        const value: string = execResult[0];
+        if (value.match(singledtonTag)) {
+            result.push({StartIndex: execResult.index, Value: value});
+        } else if (value.match(startTag)) {
+            if (startTagCounter === 0) {
+                startTagIndex = execResult.index;
+            }
+            startTagCounter++;
+        } else {
+            startTagCounter--;
+            if (startTagCounter === 0) {
+                // tslint:disable-next-line:max-line-length
+                result.push({StartIndex: startTagIndex, Value: text.substring(startTagIndex, execResult.index + value.length)});
+            }
+        }
+        execResult = regex.exec(text)!;
+    }
+    return result;
+}
