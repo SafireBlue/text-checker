@@ -7,7 +7,7 @@ export default async function(text: string): Promise<FoundResult[]> {
     const endTag: string = "</.+?>";
     let startTagCounter: number = 0;
     let startTagIndex: number = 0;
-    const regex = RegExp(`(${singledtonTag}|${startTag}|${endTag})`, "g");
+    const regex = RegExp(`(${singledtonTag}|${startTag}|${endTag})`, "mg");
     let execResult: RegExpExecArray = regex.exec(text)!;
     while (execResult) {
         const value: string = execResult[0];

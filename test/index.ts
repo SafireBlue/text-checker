@@ -1,4 +1,4 @@
-import {FindSpaces, FindMarkups, FoundResult, FindUrls} from "../src/index";
+import {FindSpaces, FindMarkups, FoundResult, FindUrls, FindRepeatedWords} from "../src/index";
 
 // tslint:disable-next-line:max-line-length
 // const res = FindNumbersFromSegment({FormatIndex: null, Props: null, Source: {Value: "test1", BeginOffSet: null}, Translation: {Value: "テスト2", BeginOffSet: null}});
@@ -77,4 +77,9 @@ export const testFindMarkups = (async () => {
           </tuv>
         </tu>
     fafaafa`);
+});
+
+export let testFindRepeatedWordsResults: FoundResult[];
+export const testFindRepeatedWords = (async () => {
+  testFindRepeatedWordsResults = await FindRepeatedWords("I am Tom, but you you have any chick.");
 });

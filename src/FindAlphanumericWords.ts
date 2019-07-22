@@ -2,7 +2,7 @@ import FoundResult from "./Util/FoundResult";
 
 export default async function(text: string): Promise<FoundResult[]> {
     const result = new Array<FoundResult>();
-    const regex = RegExp("([A-Za-z0-9]{2,})", "g");
+    const regex = RegExp("[A-Za-z0-9]{2,}", "mg");
     let execResult: RegExpExecArray = regex.exec(text)!;
     while (execResult) {
         // tslint:disable-next-line:no-unused-expression

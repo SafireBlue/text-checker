@@ -334,7 +334,7 @@ export const NumberWords = [ ...UnitKeys, ...TenKeys, ...MagnitudeKeys];
 
 export async function FindD(text: string): Promise<FoundResult[]> {
     const result = new Array<FoundResult>();
-    const regex = RegExp(/\d+/g);
+    const regex = RegExp(/\d+/mg);
     let execResult: RegExpExecArray = regex.exec(text)!;
     while (execResult) {
         result.push({StartIndex: execResult.index, Value: execResult[0]});
@@ -345,7 +345,7 @@ export async function FindD(text: string): Promise<FoundResult[]> {
 
 export async function FindEnglishNumberWords(text: string): Promise<FoundResult[]> {
     const result = new Array<FoundResult>();
-    const regex = RegExp(NumberWords.join("|"), "g");
+    const regex = RegExp(NumberWords.join("|"), "mg");
     let execResult: RegExpExecArray = regex.exec(text)!;
     while (execResult) {
         result.push({StartIndex: execResult.index, Value: execResult[0]});
@@ -356,7 +356,7 @@ export async function FindEnglishNumberWords(text: string): Promise<FoundResult[
 
 export async function FindLocalNumbers(text: string): Promise<FoundResult[]> {
     const result = new Array<FoundResult>();
-    const regex = RegExp(ULocalNumbersPattern, "g");
+    const regex = RegExp(ULocalNumbersPattern, "mg");
     let execResult: RegExpExecArray = regex.exec(text)!;
     while (execResult) {
         result.push({StartIndex: execResult.index, Value: execResult[0]});
