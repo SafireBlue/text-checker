@@ -1,8 +1,8 @@
 
-import FoundResult from "./FoundResult";
+import TextCheckResult from "./TextCheckResult";
 
-export default async function(text: string): Promise<FoundResult[]> {
-    const result = new Array<FoundResult>();
+export default async function(text: string): Promise<TextCheckResult[]> {
+    const result = new Array<TextCheckResult>();
     const regex = RegExp("([A-Za-z]{2,})", "mg");
     let execResult: RegExpExecArray = regex.exec(text)!;
     while (execResult) {

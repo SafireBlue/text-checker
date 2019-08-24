@@ -1,9 +1,9 @@
 
-import FoundResult from "./FoundResult";
+import TextCheckResult from "./TextCheckResult";
 import { USpacesPattern } from "./Util/Spaces";
 
-export default async function(text: string): Promise<FoundResult[]> {
-    const result = new Array<FoundResult>();
+export default async function(text: string): Promise<TextCheckResult[]> {
+    const result = new Array<TextCheckResult>();
     const regex = RegExp(USpacesPattern, "mg");
     let execResult: RegExpExecArray = regex.exec(text)!;
     while (execResult) {

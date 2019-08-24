@@ -1,6 +1,6 @@
 // Reference: https://github.com/finnfiddle/words-to-numbers/blob/master/src/constants.js
 
-import FoundResult from "./FoundResult";
+import TextCheckResult from "./TextCheckResult";
 
 export const Unit = {
     zero: 0,
@@ -332,8 +332,8 @@ export const TenKeys = Object.keys(Ten);
 export const MagnitudeKeys = Object.keys(Magnitude);
 export const NumberWords = [ ...UnitKeys, ...TenKeys, ...MagnitudeKeys];
 
-export async function FindD(text: string): Promise<FoundResult[]> {
-    const result = new Array<FoundResult>();
+export async function FindD(text: string): Promise<TextCheckResult[]> {
+    const result = new Array<TextCheckResult>();
     const regex = RegExp(/\d+/mg);
     let execResult: RegExpExecArray = regex.exec(text)!;
     while (execResult) {
@@ -343,8 +343,8 @@ export async function FindD(text: string): Promise<FoundResult[]> {
     return result;
 }
 
-export async function FindEnglishNumberWords(text: string): Promise<FoundResult[]> {
-    const result = new Array<FoundResult>();
+export async function FindEnglishNumberWords(text: string): Promise<TextCheckResult[]> {
+    const result = new Array<TextCheckResult>();
     const regex = RegExp(NumberWords.join("|"), "mg");
     let execResult: RegExpExecArray = regex.exec(text)!;
     while (execResult) {
@@ -354,8 +354,8 @@ export async function FindEnglishNumberWords(text: string): Promise<FoundResult[
     return result;
 }
 
-export async function FindLocalNumbers(text: string): Promise<FoundResult[]> {
-    const result = new Array<FoundResult>();
+export async function FindLocalNumbers(text: string): Promise<TextCheckResult[]> {
+    const result = new Array<TextCheckResult>();
     const regex = RegExp(ULocalNumbersPattern, "mg");
     let execResult: RegExpExecArray = regex.exec(text)!;
     while (execResult) {
@@ -365,8 +365,8 @@ export async function FindLocalNumbers(text: string): Promise<FoundResult[]> {
     return result;
 }
 
-export default async function(text: string): Promise<FoundResult[]> {
-    const result = new Array<FoundResult>();
+export default async function(text: string): Promise<TextCheckResult[]> {
+    const result = new Array<TextCheckResult>();
     result.push(...await FindD(text));
     result.push(...await FindEnglishNumberWords(text));
     result.push(...await FindLocalNumbers(text));
