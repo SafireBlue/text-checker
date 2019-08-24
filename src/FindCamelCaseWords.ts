@@ -7,7 +7,7 @@ export default async function(text: string): Promise<FoundResult[]> {
     let execResult: RegExpExecArray = regex.exec(text)!;
     while (execResult) {
         if (/[a-z][A-Z]/g.test(execResult[0])) {
-            result.push({StartIndex: execResult.index, Value: execResult[0]});
+            result.push({Name: "FindCamelCaseWords", StartIndex: execResult.index, Value: execResult[0]});
         }
         execResult = regex.exec(text)!;
     }

@@ -7,7 +7,7 @@ export default async function(text: string): Promise<FoundResult[]> {
     const regex = RegExp(USpacesPattern, "mg");
     let execResult: RegExpExecArray = regex.exec(text)!;
     while (execResult) {
-        result.push({StartIndex: execResult.index, Value: execResult[0]});
+        result.push({Name: "FindSpaces", StartIndex: execResult.index, Value: execResult[0]});
         execResult = regex.exec(text)!;
     }
     return result;

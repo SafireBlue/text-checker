@@ -14,8 +14,8 @@ export default async function(text: string): Promise<FoundResult[]> {
         if (prevValue === execResult[0]
             && execResult.index - (prevStartIndex + prevValue.length) === 1
             && text.charAt(execResult.index - 1).match(USpacesPattern)) {
-            result.push({StartIndex: prevStartIndex, Value: prevValue});
-            result.push({StartIndex: execResult.index, Value: execResult[0]});
+            result.push({Name: "FindRepeatedWords", StartIndex: prevStartIndex, Value: prevValue});
+            result.push({Name: "FindRepeatedWords", StartIndex: execResult.index, Value: execResult[0]});
         }
         prevStartIndex = execResult.index;
         prevValue = execResult[0];

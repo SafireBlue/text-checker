@@ -12,7 +12,7 @@ export default async function(text: string): Promise<FoundResult[]> {
     while (execResult) {
         const value: string = execResult[0];
         if (value.match(singledtonTag)) {
-            result.push({StartIndex: execResult.index, Value: value});
+            result.push({Name: "FindMarkups", StartIndex: execResult.index, Value: value});
         } else if (value.match(startTag)) {
             if (startTagCounter === 0) {
                 startTagIndex = execResult.index;
@@ -22,7 +22,11 @@ export default async function(text: string): Promise<FoundResult[]> {
             startTagCounter--;
             if (startTagCounter === 0) {
                 // tslint:disable-next-line:max-line-length
-                result.push({StartIndex: startTagIndex, Value: text.substring(startTagIndex, execResult.index + value.length)});
+                result.push({
+                    Name: "FindMarkups",
+                    StartIndex: startTagIndex,
+                    Value: text.substring(startTagIndex, execResult.index + value.length),
+                });
             }
         }
         execResult = regex.exec(text)!;
