@@ -1,5 +1,5 @@
 
-import FoundResult from "./Util/FoundResult";
+import FoundResult from "./FoundResult";
 import { USpacesPattern } from "./Util/Spaces";
 
 export default async function(text: string): Promise<FoundResult[]> {

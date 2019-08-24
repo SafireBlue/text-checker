@@ -1,4 +1,4 @@
-import FoundResult from "./Util/FoundResult";
+import FoundResult from "./FoundResult";
 
 export default async function(text: string): Promise<FoundResult[]> {
     const result = new Array<FoundResult>();

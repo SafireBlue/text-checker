@@ -1,6 +1,6 @@
 // Reference: https://github.com/finnfiddle/words-to-numbers/blob/master/src/constants.js
 
-import FoundResult from "./Util/FoundResult";
+import FoundResult from "./FoundResult";
 
 export const Unit = {
     zero: 0,
