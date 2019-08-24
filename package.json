@@ -1,6 +1,6 @@
 {
   "name": "text-checker",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "Checks text",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
