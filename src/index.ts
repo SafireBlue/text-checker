@@ -8,4 +8,4 @@ export { default as FindSpaces } from "./FindSpaces";
 export { default as FindUrls } from "./FindUrls";
 
 // Util
-export { default as FoundResult } from "./FoundResult";
+export { default as TextCheckResult } from "./TextCheckResult";

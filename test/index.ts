@@ -1,4 +1,4 @@
-import {FindMarkups, FindRepeatedWords, FindSpaces, FindUrls, FoundResult} from "../src/index";
+import {FindMarkups, FindRepeatedWords, FindSpaces, FindUrls, TextCheckResult} from "../src/index";
 
 // tslint:disable-next-line:max-line-length
 // const res = FindNumbersFromSegment({FormatIndex: null, Props: null, Source: {Value: "test1", BeginOffSet: null}, Translation: {Value: "テスト2", BeginOffSet: null}});
@@ -10,12 +10,12 @@ export const test = (async () => {
     console.dir(res);
 });
 
-export let testFindUrlsResult: FoundResult[];
+export let testFindUrlsResult: TextCheckResult[];
 export const testFindUrls = (async () => {
   testFindUrlsResult = await FindUrls("https://www.regextester.com/93652");
 });
 
-export let testFindMarkupsResults: FoundResult[];
+export let testFindMarkupsResults: TextCheckResult[];
 export const testFindMarkups = (async () => {
     testFindMarkupsResults = await FindMarkups(`
     test
@@ -57,7 +57,7 @@ export const testFindMarkups = (async () => {
     fafaafa`);
 });
 
-export let testFindRepeatedWordsResults: FoundResult[];
+export let testFindRepeatedWordsResults: TextCheckResult[];
 export const testFindRepeatedWords = (async () => {
   testFindRepeatedWordsResults = await FindRepeatedWords("I am Tom, but you you have any chick.");
 });
