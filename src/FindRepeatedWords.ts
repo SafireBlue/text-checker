@@ -7,6 +7,9 @@ export default async function(text: string): Promise<TextCheckResult[]> {
     const wordPattern = "[A-Za-z0-9]{2,}";
     const regex = RegExp(`${wordPattern}`, "mg");
     let execResult: RegExpExecArray = regex.exec(text)!;
+    if (!execResult) {
+        return result;
+    }
     let prevStartIndex = execResult.index;
     let prevValue = execResult[0];
     execResult = regex.exec(text)!;

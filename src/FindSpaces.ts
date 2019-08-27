@@ -1,10 +1,11 @@
 
 import TextCheckResult from "./TextCheckResult";
-import { USpacesPattern } from "./Util/Spaces";
+import { UNonAsciiSpacesPattern, USpacesPattern } from "./Util/Spaces";
 
-export default async function(text: string): Promise<TextCheckResult[]> {
+// tslint:disable-next-line:max-line-length
+export default async function(text: string, options: {excludesAsciiSpace: boolean} = {excludesAsciiSpace: false}): Promise<TextCheckResult[]> {
     const result = new Array<TextCheckResult>();
-    const regex = RegExp(USpacesPattern, "mg");
+    const regex = RegExp(options.excludesAsciiSpace ? UNonAsciiSpacesPattern : USpacesPattern, "mg");
     let execResult: RegExpExecArray = regex.exec(text)!;
     while (execResult) {
         result.push({Name: "FindSpaces", StartIndex: execResult.index, Value: execResult[0]});
